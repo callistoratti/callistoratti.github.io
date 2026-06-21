@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dexter Dexigner - Uçtan Uca Baskı & Sipariş Otomasyon Ekosistemi. Shopify ve Shopier siparişlerinizi tek tıkla çekin, kılıf şablonlarını otomatik ölçekleyin ve milimetrik PDF baskı çıktıları üretin.">
+  <title>Dexter Dexigner - Uçtan Uca Baskı & Sipariş Otomasyon Sistemi</title>
+  
+  <!-- Google Fonts: Outfit (Headings) & Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Modern Premium CSS System -->
+  <style>
+    :root {
+      /* Apple Deep Space Theme Colors */
+      --bg-dark: #000000;
+      --bg-surface: #0b0b0f;
+      --bg-panel: rgba(22, 22, 23, 0.4);
+      --bg-panel-hover: rgba(22, 22, 23, 0.75);
+      --border-color: rgba(255, 255, 255, 0.05);
+      --border-color-hover: rgba(255, 255, 255, 0.15);
+      
+      --accent: #0071E3; /* Apple Blue */
+      --accent-hover: #147CE5;
+      --accent-glow: rgba(0, 113, 227, 0.15);
+      --accent-gradient: linear-gradient(135deg, #0071E3 0%, #3598FF 100%);
+      
+      /* Premium Metallic text gradient */
+      --text-gradient: linear-gradient(180deg, #FFFFFF 0%, #F5F5F7 40%, #A1A1A6 100%);
+      --text-primary: #F5F5F7;
+      --text-secondary: #86868B;
+      --text-muted: #515154;
+      
+      --success: #30D158;
+      --error: #FF453A;
+      
+      --max-width: 1040px;
+      --transition-spring: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.47059; /* Apple standard */
+      font-weight: 400;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient background glows - Elegant & Soft */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      top: -300px;
+      right: -100px;
+      background: radial-gradient(circle, rgba(0, 113, 227, 0.1) 0%, transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+      filter: blur(40px);
+      animation: pulseGlow 12s infinite alternate;
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      bottom: 15%;
+      left: -200px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.04) 0%, transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+      filter: blur(40px);
+      animation: pulseGlow 10s infinite alternate-reverse;
+    }
+
+    @keyframes pulseGlow {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.8; }
+      100% { transform: scale(1.1) translate(20px, 10px); opacity: 1; }
+    }
+
+    /* Navigation Bar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 52px; /* Slimmer height */
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-container {
+      width: 100%;
+      max-width: var(--max-width);
+      padding: 0 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #FFFFFF;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.2px;
+      transition: opacity 0.2s ease;
+    }
+    
+    .brand:hover {
+      opacity: 0.95;
+    }
+
+    .brand img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: -0.1px;
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--text-primary);
+    }
+
+    .btn-header {
+      background: #FFFFFF;
+      color: #000000;
+      padding: 5px 14px;
+      border-radius: 14px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-header:hover {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+      transform: translateY(-0.5px);
+    }
+
+    /* Main Container Section */
+    section {
+      padding: 80px 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .section-inner {
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding-top: 150px;
+      padding-bottom: 70px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      letter-spacing: 0.2px;
+    }
+
+    .hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 1.07143;
+      margin-bottom: 18px;
+      background: var(--text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInHero 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeInHero {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+      line-height: 1.4;
+      max-width: 600px;
+      letter-spacing: -0.1px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #FFFFFF;
+      color: #000000;
+      padding: 12px 28px;
+      border-radius: 24px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: #FFFFFF;
+      border: 1px solid var(--border-color);
+      padding: 12px 28px;
+      border-radius: 24px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* Features Section */
+    .features {
+      border-top: 1px solid var(--border-color);
+      position: relative;
+      background: #010103;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 54px;
+    }
+
+    .section-title h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      margin-bottom: 10px;
+      background: var(--text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-title p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 32px 28px;
+      transition: var(--transition-spring);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-color);
+    }
+
+    .feature-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -0.1px;
+      color: #FFFFFF;
+    }
+
+    .feature-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* How It Works Section */
+    .how-it-works {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 36px;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 16px;
+      position: relative;
+    }
+
+    .step-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: -10px;
+      line-height: 1;
+    }
+
+    .step-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #FFFFFF;
+    }
+
+    .step-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    /* Interactive Desktop GUI Mockup Section */
+    .dashboard-preview-section {
+      background: #010103;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .gui-mockup {
+      width: 100%;
+      background: #0D0D11;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin-top: 36px;
+      transition: var(--transition-spring);
+    }
+
+    .gui-mockup:hover {
+      box-shadow: 0 45px 110px rgba(0, 113, 227, 0.08), 0 40px 100px rgba(0, 0, 0, 0.85);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .gui-titlebar {
+      height: 38px;
+      background: #141417;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 6px;
+    }
+
+    .gui-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .gui-dot.red { background: #FF5F56; }
+    .gui-dot.yellow { background: #FFBD2E; }
+    .gui-dot.green { background: #27C93F; }
+
+    .gui-title {
+      color: var(--text-secondary);
+      font-size: 0.7rem;
+      margin-left: 16px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    .gui-body {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      height: 380px;
+    }
+
+    .gui-sidebar {
+      background: #0E0E12;
+      border-right: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 16px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .gui-sidebar-item {
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .gui-sidebar-item.active {
+      background: rgba(255, 255, 255, 0.04);
+      color: #FFFFFF;
+    }
+    .gui-sidebar-item:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.02);
+      color: #FFFFFF;
+    }
+
+    .gui-content {
+      padding: 24px;
+      background: #0A0A0E;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .gui-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .gui-card {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: var(--transition-smooth);
+    }
+    
+    .gui-card:hover {
+      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .gui-card-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .gui-card-lbl {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+    }
+
+    .gui-export-preview {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gui-export-flow {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      z-index: 2;
+    }
+
+    .gui-node {
+      background: #121216;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-primary);
+    }
+
+    .gui-arrow {
+      width: 40px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.15);
+      position: relative;
+    }
+    .gui-arrow::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -2px;
+      width: 5px;
+      height: 5px;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      border-right: 1px solid rgba(255, 255, 255, 0.3);
+      transform: rotate(45deg);
+    }
+
+    .gui-pulse-ball {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: #0071E3;
+      border-radius: 50%;
+      top: -2px;
+      left: 0;
+      box-shadow: 0 0 8px #0071E3;
+      animation: pulseBall 2.5s infinite linear;
+    }
+
+    @keyframes pulseBall {
+      0% { left: 0%; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
+    }
+
+    /* Download Callout Box */
+    .download-callout {
+      background: var(--bg-dark);
+      text-align: center;
+    }
+
+    .callout-box {
+      background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.02) 0%, transparent 60%), rgba(22, 22, 23, 0.4);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 50px 30px;
+      max-width: 760px;
+      width: 100%;
+      margin: 0 auto;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transition: var(--transition-spring);
+    }
+    
+    .callout-box:hover {
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 30px 60px rgba(0, 113, 227, 0.03), 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .callout-box h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+      background: var(--text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .callout-box p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      max-width: 440px;
+      margin: 0 auto 30px auto;
+    }
+
+    .btn-download-large {
+      display: inline-block;
+      background: #FFFFFF;
+      color: #000000;
+      padding: 14px 36px;
+      border-radius: 24px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+      transition: var(--transition-smooth);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .btn-download-large:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+    }
+
+    .download-meta {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 28px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .download-meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .download-meta svg {
+      opacity: 0.6;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-color);
+      padding: 30px 22px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #FFFFFF;
+    }
+
+    .footer-brand img {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+    }
+
+    .footer-text {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* E-Commerce Integration Section */
+    .integration-section {
+      background: #010103;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 80px 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .integration-wrapper {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .integration-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .integration-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(0, 113, 227, 0.08);
+      color: var(--accent);
+      border: 1px solid rgba(0, 113, 227, 0.15);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+    }
+
+    .integration-content h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      margin-bottom: 16px;
+      background: var(--text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .integration-content p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .integration-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .integration-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .integration-feature-item svg {
+      flex-shrink: 0;
+    }
+
+    .integration-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .integration-visual-card {
+      width: 100%;
+      max-width: 380px;
+      background: rgba(22, 22, 23, 0.3);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 36px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .store-nodes {
+      display: flex;
+      gap: 20px;
+    }
+
+    .store-node {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .store-node.shopify .store-logo-text { color: #96bf48; }
+    .store-node.shopier .store-logo-text { color: #f72585; }
+
+    .flow-arrow-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .flow-line {
+      width: 2px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .flow-ball {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      left: -2px;
+      top: 0;
+      box-shadow: 0 0 8px var(--accent);
+      animation: flowDown 2s infinite linear;
+    }
+
+    @keyframes flowDown {
+      0% { top: 0; opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    .target-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .target-node img {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+    }
+
+    /* Media Queries */
+    @media (max-width: 900px) {
+      .integration-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+      .integration-content {
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        letter-spacing: -1.2px;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .gui-body {
+        grid-template-columns: 1fr;
+      }
+      .gui-sidebar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        height: 48px;
+      }
+      nav {
+        display: none;
+      }
+      .download-meta {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="assets/logo.png" alt="Logo">
+        <span>Dexter Dexigner</span>
+      </a>
+      <nav>
+        <a href="#ozellikler">Özellikler</a>
+        <a href="models.html">Desteklenen Modeller</a>
+        <a href="#nasil-calisir">Nasıl Çalışır?</a>
+        <a href="#indir">İndir</a>
+      </nav>
+      <a href="#indir" class="btn-header">Hemen İndir</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="section-inner">
+      <div class="hero-content">
+        <div class="hero-badge">Sürüm 1.0.0 Aktif</div>
+        <h1>Baskı ve Sipariş İş Akışınızı Uçtan Uca Otomatize Edin</h1>
+        <p>Shopify ve Shopier siparişlerinizi tek tıkla çekin, kılıf şablonlarını otomatik ölçekleyin ve milimetrik kesim çizgili vektörel PDF baskı kalıplarını anında üretin. Atölyenizdeki tüm manuel süreçleri sıfıra indirin.</p>
+        <div class="hero-buttons">
+          <a href="#indir" class="btn-primary">Yükleyiciyi İndir (Windows)</a>
+          <a href="models.html" class="btn-secondary">Modelleri İncele</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="ozellikler">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>Üretim ve Tasarım Süreçlerinde Tam Otomasyon</h2>
+        <p>Baskı ve tasarım atölyenizin sipariş alımından üretim çıktısına kadar olan tüm iş akışı tek bir akıllı panelde.</p>
+      </div>
+      
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3>Hazır Kalıp Kütüphanesi</h3>
+          <p>iPhone X'ten en güncel iPhone serilerine kadar tüm milimetrik kılıf kalıpları hazır gelir, buluttan otomatik güncellenir.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Akıllı Yerleşim Otomasyonu</h3>
+          <p>Sipariş listesinden gelen tüm farklı modelleri, tasarımlarıyla eşleştirip saniyeler içinde otomatik olarak ölçekler ve konumlandırır.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3>Baskı ve Kesim Otomasyonu</h3>
+          <p>Baskı makineleri için milimetrik doğrulukta, kesim ve kırpma çizgileri içeren baskıya hazır vektör PDF çıktılarını tek tıkla üretir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-Commerce Integration Section -->
+  <section class="integration-section" id="entegrasyon">
+    <div class="section-inner">
+      <div class="integration-wrapper">
+        <div class="integration-content">
+          <div class="integration-badge">E-Ticaret Entegrasyonu</div>
+          <h2>Shopify & Shopier Siparişlerinizi Tek Tıkla Aktarın</h2>
+          <p>Tasarım atölyenizdeki sipariş yönetim sürecini hızlandırın. Mağazalarınız için geliştirdiğimiz özel tarayıcı eklentisi sayesinde, gelen sipariş detaylarını tek tek elle yazmak yerine tek tıkla Dexter Dexigner formatına dönüştürüp kopyalayabilirsiniz.</p>
+          <div class="integration-features-list">
+            <div class="integration-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Shopify satıcı panelinde siparişleri tek tıkla kopyalama</span>
+            </div>
+            <div class="integration-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Shopier sipariş listesinde hızlı aktarım butonları</span>
+            </div>
+            <div class="integration-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Hata payını sıfıra indiren akıllı sipariş formatlama</span>
+            </div>
+          </div>
+          <a href="eklenti.html" class="btn-primary" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; margin-top: 10px;">
+            Eklentiyi Kur & Rehberi Oku
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="integration-visual">
+          <div class="integration-visual-card">
+            <div class="store-nodes">
+              <div class="store-node shopify">
+                <span class="store-logo-text">S</span>
+                <span>Shopify</span>
+              </div>
+              <div class="store-node shopier">
+                <span class="store-logo-text">S</span>
+                <span>Shopier</span>
+              </div>
+            </div>
+            <div class="flow-arrow-container">
+              <div class="flow-line">
+                <div class="flow-ball"></div>
+              </div>
+            </div>
+            <div class="target-node">
+              <img src="assets/logo.png" alt="Dexter Logo">
+              <span style="color: #FFFFFF; font-size: 0.85rem; font-weight: 600;">Dexter Dexigner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Desktop GUI Mockup Section -->
+  <section class="dashboard-preview-section">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>Güçlü Masaüstü Arayüzü</h2>
+        <p>Gelişmiş yerel C# derleyici altyapısı ve otomatik şablon senkronizasyonu ile donatılmış masaüstü arayüzü.</p>
+      </div>
+
+      <div class="gui-mockup">
+        <div class="gui-titlebar">
+          <div class="gui-dot red"></div>
+          <div class="gui-dot yellow"></div>
+          <div class="gui-dot green"></div>
+          <div class="gui-title">DEXTER DEXIGNER DESKTOP BUNDLE</div>
+        </div>
+        <div class="gui-body">
+          <div class="gui-sidebar">
+            <div class="gui-sidebar-item active">Kontrol Paneli</div>
+            <div class="gui-sidebar-item">Şablon Kataloğu</div>
+            <div class="gui-sidebar-item">Baskı Çıktıları</div>
+            <div class="gui-sidebar-item">Sistem Ayarları</div>
+          </div>
+          <div class="gui-content">
+            <div class="gui-card-grid">
+              <div class="gui-card">
+                <span class="gui-card-val">48+</span>
+                <span class="gui-card-lbl">Kalıp Modeli</span>
+              </div>
+              <div class="gui-card">
+                <span class="gui-card-val">0.2 sn</span>
+                <span class="gui-card-lbl">Ölçekleme Hızı</span>
+              </div>
+              <div class="gui-card">
+                <span class="gui-card-val">%100</span>
+                <span class="gui-card-lbl">Baskı Uyum Oranı</span>
+              </div>
+            </div>
+            
+            <div class="gui-export-preview">
+              <div class="gui-export-flow">
+                <div class="gui-node">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                  <span>Şablon Tasarımı</span>
+                </div>
+                <div class="gui-arrow">
+                  <div class="gui-pulse-ball"></div>
+                </div>
+                <div class="gui-node">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  <span>Vektör PDF Çıktı</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="nasil-calisir">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>3 Adımda Süreci Sıfır Hata ile Otomatize Edin</h2>
+        <p>Dexter Dexigner, telefon kılıfı üretimindeki tüm manuel sipariş eşleme ve şablon ölçekleme yükünü ortadan kaldırır.</p>
+      </div>
+      
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Entegre Edin</h3>
+          <p>Shopify veya Shopier mağazanıza tarayıcı eklentisini bağlayın ve siparişlerinizi saniyeler içinde çekin.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>Otomatize Edin</h3>
+          <p>Sistem sipariş detaylarını okur, telefon modellerini kalıplarla milimetrik olarak otomatik yerleştirir ve ölçekler.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>Üretin</h3>
+          <p>Oluşturulan kırpma çizgili PDF dosyasını doğrudan baskı makinenize gönderin, baskı ve kesim sürecini başlatın.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="download-callout" id="indir">
+    <div class="section-inner">
+      <div class="callout-box">
+        <h2>Atölyenizi Otomasyona Geçirin</h2>
+        <p>Telefon kılıfı üretimindeki hataları sıfıra indirmek ve iş akışınızı baştan sona otomatikleştirmek için ilk adımı atın.</p>
+        <a href="https://github.com/callistoratti/callistoratti.github.io/releases/download/v1.0.0/Dexigner_v1.0.0.exe" class="btn-download-large">Masaüstü Uygulamasını İndir</a>
+        
+        <div class="download-meta">
+          <span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+            Windows 10 / 11
+          </span>
+          <span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Dosya Boyutu: 114 MB
+          </span>
+          <span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Sürüm: 1.0.0
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Logo">
+        <span>Dexter Dexigner</span>
+      </div>
+      <div class="footer-text">
+        &copy; 2026 Dexter Dexigner. Tüm Hakları Saklıdır.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

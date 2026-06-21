@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dexter Dexigner tarafından desteklenen tüm iPhone model kalıplarının listesi. Sürekli güncellenen şablonlarla işinizi büyütün.">
+  <title>Desteklenen Modeller - Dexter Dexigner</title>
+  
+  <!-- Google Fonts: Outfit (Headings) & Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Modern Premium CSS System -->
+  <style>
+    :root {
+      /* Apple Deep Space Theme Colors */
+      --bg-dark: #000000;
+      --bg-surface: #0b0b0f;
+      --bg-panel: rgba(22, 22, 23, 0.4);
+      --bg-panel-hover: rgba(22, 22, 23, 0.75);
+      --border-color: rgba(255, 255, 255, 0.05);
+      --border-color-hover: rgba(255, 255, 255, 0.15);
+      
+      --accent: #0071E3; /* Apple Blue */
+      --accent-hover: #147CE5;
+      --accent-glow: rgba(0, 113, 227, 0.15);
+      
+      /* Premium Metallic text gradient */
+      --text-gradient: linear-gradient(180deg, #FFFFFF 0%, #F5F5F7 40%, #A1A1A6 100%);
+      --text-primary: #F5F5F7;
+      --text-secondary: #86868B;
+      --text-muted: #515154;
+      
+      --success: #30D158;
+      
+      --max-width: 1040px;
+      --transition-spring: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.47059;
+      font-weight: 400;
+      overflow-x: hidden;
+      padding-top: 100px;
+      position: relative;
+    }
+
+    /* Ambient background glows - Elegant & Soft */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      top: -300px;
+      left: -100px;
+      background: radial-gradient(circle, rgba(0, 113, 227, 0.08) 0%, transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+      filter: blur(40px);
+    }
+
+    /* Navigation Bar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 52px; /* Slimmer height */
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-container {
+      width: 100%;
+      max-width: var(--max-width);
+      padding: 0 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #FFFFFF;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.2px;
+      transition: opacity 0.2s ease;
+    }
+    
+    .brand:hover {
+      opacity: 0.95;
+    }
+
+    .brand img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: -0.1px;
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--text-primary);
+    }
+
+    .btn-header {
+      background: #FFFFFF;
+      color: #000000;
+      padding: 5px 14px;
+      border-radius: 14px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-header:hover {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+      transform: translateY(-0.5px);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 22px 80px 22px;
+    }
+
+    /* Header Section */
+    .models-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .models-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+      margin-bottom: 12px;
+      background: var(--text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .models-header p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* Dynamic Update Callout */
+    .update-callout {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      transition: var(--transition-smooth);
+    }
+    
+    .update-callout:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .update-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--border-color);
+    }
+
+    .update-text h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #FFFFFF;
+    }
+
+    .update-text p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Search Bar */
+    .search-box {
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 14px 22px;
+      font-size: 0.95rem;
+      color: #FFFFFF;
+      transition: var(--transition-smooth);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 113, 227, 0.05), 0 4px 20px rgba(0, 0, 0, 0.2);
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* Models Layout */
+    .generation-section {
+      margin-bottom: 40px;
+      transition: var(--transition-smooth);
+    }
+
+    .generation-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.4px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      color: #FFFFFF;
+    }
+
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .model-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition-spring);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .model-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .model-info h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .model-info p {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 3px;
+    }
+
+    .status-badge {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--success);
+      background: rgba(48, 209, 88, 0.05);
+      padding: 3px 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(48, 209, 88, 0.1);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-color);
+      padding: 30px 22px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #FFFFFF;
+    }
+
+    .footer-brand img {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+    }
+
+    .footer-text {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* No Results Message */
+    .no-results {
+      text-align: center;
+      padding: 50px 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.png" alt="Logo">
+        <span>Dexter Dexigner</span>
+      </a>
+      <nav>
+        <a href="index.html#ozellikler">Özellikler</a>
+        <a href="#" style="color: #FFFFFF;">Desteklenen Modeller</a>
+        <a href="index.html#nasil-calisir">Nasıl Çalışır?</a>
+        <a href="index.html#indir">İndir</a>
+      </nav>
+      <a href="index.html#indir" class="btn-header">Hemen İndir</a>
+    </div>
+  </header>
+
+  <!-- Container -->
+  <div class="container">
+    <div class="models-header">
+      <h1>Desteklenen Baskı Kalıpları</h1>
+      <p>Baskı otomasyon panelimiz tüm yeni nesil kılıfları destekler ve kalıp listemiz bulut üzerinden sürekli olarak yenilenir.</p>
+    </div>
+
+    <!-- Update Callout Banner -->
+    <div class="update-callout">
+      <div class="update-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+      </div>
+      <div class="update-text">
+        <h3>Bulut Kalıp Veritabanı</h3>
+        <p>Yeni bir telefon modeli piyasaya çıktığında şablon kalıbı sistemimize otomatik olarak eklenir. Güncelleme yapmanıza gerek kalmaz.</p>
+      </div>
+    </div>
+
+    <!-- Search Box -->
+    <div class="search-box">
+      <input type="text" id="search-input" class="search-input" placeholder="Model ara (örn. iPhone 16 Pro Max)...">
+    </div>
+
+    <!-- No Results Message -->
+    <div class="no-results" id="no-results-msg">Aradığınız kriterlere uygun model bulunamadı.</div>
+
+    <!-- Model Groups -->
+    
+    <!-- iPhone 17 Series -->
+    <div class="generation-section" data-generation="17">
+      <div class="generation-title">iPhone 17 Serisi</div>
+      <div class="models-grid">
+        <div class="model-card" data-name="iphone 17">
+          <div class="model-info">
+            <h3>iPhone 17</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 17 pro">
+          <div class="model-info">
+            <h3>iPhone 17 Pro</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 17 pro max">
+          <div class="model-info">
+            <h3>iPhone 17 Pro Max</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 17 air">
+          <div class="model-info">
+            <h3>iPhone 17 Air</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- iPhone 16 Series -->
+    <div class="generation-section" data-generation="16">
+      <div class="generation-title">iPhone 16 Serisi</div>
+      <div class="models-grid">
+        <div class="model-card" data-name="iphone 16">
+          <div class="model-info">
+            <h3>iPhone 16</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 16 plus">
+          <div class="model-info">
+            <h3>iPhone 16 Plus</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 16 pro">
+          <div class="model-info">
+            <h3>iPhone 16 Pro</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 16 pro max">
+          <div class="model-info">
+            <h3>iPhone 16 Pro Max</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 16e">
+          <div class="model-info">
+            <h3>iPhone 16e</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- iPhone 15 Series -->
+    <div class="generation-section" data-generation="15">
+      <div class="generation-title">iPhone 15 Serisi</div>
+      <div class="models-grid">
+        <div class="model-card" data-name="iphone 15">
+          <div class="model-info">
+            <h3>iPhone 15</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 15 pro">
+          <div class="model-info">
+            <h3>iPhone 15 Pro</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 15 pro max">
+          <div class="model-info">
+            <h3>iPhone 15 Pro Max</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- iPhone 14 Series -->
+    <div class="generation-section" data-generation="14">
+      <div class="generation-title">iPhone 14 Serisi</div>
+      <div class="models-grid">
+        <div class="model-card" data-name="iphone 14">
+          <div class="model-info">
+            <h3>iPhone 14</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 14 plus">
+          <div class="model-info">
+            <h3>iPhone 14 Plus</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 14 pro">
+          <div class="model-info">
+            <h3>iPhone 14 Pro</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 14 pro max">
+          <div class="model-info">
+            <h3>iPhone 14 Pro Max</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- iPhone 13 Series -->
+    <div class="generation-section" data-generation="13">
+      <div class="generation-title">iPhone 13 Serisi</div>
+      <div class="models-grid">
+        <div class="model-card" data-name="iphone 13">
+          <div class="model-info">
+            <h3>iPhone 13</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 13 pro">
+          <div class="model-info">
+            <h3>iPhone 13 Pro</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 13 pro max">
+          <div class="model-info">
+            <h3>iPhone 13 Pro Max</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 13 mini">
+          <div class="model-info">
+            <h3>iPhone 13 Mini</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- iPhone 12 Series -->
+    <div class="generation-section" data-generation="12">
+      <div class="generation-title">iPhone 12 Serisi</div>
+      <div class="models-grid">
+        <div class="model-card" data-name="iphone 12">
+          <div class="model-info">
+            <h3>iPhone 12</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 12 pro">
+          <div class="model-info">
+            <h3>iPhone 12 Pro</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 12 pro max">
+          <div class="model-info">
+            <h3>iPhone 12 Pro Max</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 12 mini">
+          <div class="model-info">
+            <h3>iPhone 12 Mini</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- iPhone 11 Series -->
+    <div class="generation-section" data-generation="11">
+      <div class="generation-title">iPhone 11 Serisi</div>
+      <div class="models-grid">
+        <div class="model-card" data-name="iphone 11">
+          <div class="model-info">
+            <h3>iPhone 11</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 11 pro">
+          <div class="model-info">
+            <h3>iPhone 11 Pro</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 11 pro max">
+          <div class="model-info">
+            <h3>iPhone 11 Pro Max</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Classic Series -->
+    <div class="generation-section" data-generation="classic">
+      <div class="generation-title">Klasik iPhone Serileri</div>
+      <div class="models-grid">
+        <div class="model-card" data-name="iphone x">
+          <div class="model-info">
+            <h3>iPhone X</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone xs">
+          <div class="model-info">
+            <h3>iPhone XS</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone xr">
+          <div class="model-info">
+            <h3>iPhone XR</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone xs max">
+          <div class="model-info">
+            <h3>iPhone XS Max</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 6">
+          <div class="model-info">
+            <h3>iPhone 6</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 6s">
+          <div class="model-info">
+            <h3>iPhone 6s</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 7">
+          <div class="model-info">
+            <h3>iPhone 7</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 8">
+          <div class="model-info">
+            <h3>iPhone 8</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone se">
+          <div class="model-info">
+            <h3>iPhone SE</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 6 plus">
+          <div class="model-info">
+            <h3>iPhone 6 Plus</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 6s plus">
+          <div class="model-info">
+            <h3>iPhone 6s Plus</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 7 plus">
+          <div class="model-info">
+            <h3>iPhone 7 Plus</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+        <div class="model-card" data-name="iphone 8 plus">
+          <div class="model-info">
+            <h3>iPhone 8 Plus</h3>
+            <p>Hassas Kalıp Hazır</p>
+          </div>
+          <span class="status-badge">Aktif</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Logo">
+        <span>Dexter Dexigner</span>
+      </div>
+      <div class="footer-text">
+        &copy; 2026 Dexter Dexigner. Tüm Hakları Saklıdır.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search and filter logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search-input');
+      const sections = document.querySelectorAll('.generation-section');
+      const noResults = document.getElementById('no-results-msg');
+
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let anyVisible = false;
+
+        sections.forEach(section => {
+          let sectionVisible = false;
+          const sectionCards = section.querySelectorAll('.model-card');
+
+          sectionCards.forEach(card => {
+            const modelName = card.getAttribute('data-name');
+            if (modelName.includes(query)) {
+              card.style.display = 'flex';
+              sectionVisible = true;
+              anyVisible = true;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          if (sectionVisible) {
+            section.style.display = 'block';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+
+        if (anyVisible) {
+          noResults.style.display = 'none';
+        } else {
+          noResults.style.display = 'block';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
